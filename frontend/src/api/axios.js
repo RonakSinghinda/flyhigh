@@ -8,6 +8,10 @@ const api = axios.create({
     },
 });
 
+// Debug: Log the baseURL being used (remove in production)
+console.log('🔧 Axios baseURL:', api.defaults.baseURL);
+console.log('🔧 Environment VITE_API_BASE_URL:', import.meta.env.VITE_API_BASE_URL);
+
 // Request interceptor to add JWT token to headers
 api.interceptors.request.use(
     (config) => {
