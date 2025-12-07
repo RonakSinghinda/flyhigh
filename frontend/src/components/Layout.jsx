@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
                                         to="/admin"
                                         className={location.pathname === '/admin' ? 'active' : ''}
                                     >
-                                        Admin Dashboard
+                                        Manager Dashboard
                                     </Link>
                                 ) : (
                                     <Link

@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 import ExpenseCard from '../components/ExpenseCard';
 
 /**
- * Admin Dashboard Component
+ * Manager Dashboard Component
  * Allows admins to view all expenses, approve/reject them, and manage budgets
  */
 const AdminDashboard = () => {
@@ -172,7 +172,7 @@ const AdminDashboard = () => {
         <Layout>
             <div className="dashboard-container">
                 <div className="dashboard-header">
-                    <h2>Admin Dashboard</h2>
+                    <h2>Manager Dashboard</h2>
                     <p>Manage expenses and budgets</p>
                 </div>
 
