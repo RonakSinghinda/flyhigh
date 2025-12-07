@@ -266,7 +266,7 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for production deployment instructions.
 5. If **approved**, budget's spent amount updates automatically
 6. **Employee** can view status and notes
 
-## 📊 Admin Dashboard
+## 📊 Manager Dashboard
 
 - **Expenses Tab**
   - Filter by status (pending/approved/rejected/all)

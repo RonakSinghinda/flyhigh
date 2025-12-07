@@ -1,4 +1,5 @@
 import { useAuth } from '../context/AuthContext';
+import { useTheme } from '../context/ThemeContext';
 import { Link, useLocation } from 'react-router-dom';
 
 /**
@@ -6,6 +7,7 @@ import { Link, useLocation } from 'react-router-dom';
  */
 const Layout = ({ children }) => {
     const { user, logout } = useAuth();
+    const { theme, toggleTheme } = useTheme();
     const location = useLocation();
 
     const handleLogout = () => {
@@ -43,6 +45,15 @@ const Layout = ({ children }) => {
                                     </Link>
                                 )}
                             </div>
+
+                            <button
+                                onClick={toggleTheme}
+                                className="theme-toggle"
+                                aria-label="Toggle theme"
+                                title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+                            >
+                                {theme === 'light' ? '🌙' : '☀️'}
+                            </button>
 
                             <button onClick={handleLogout} className="btn btn-outline">
                                 Logout
