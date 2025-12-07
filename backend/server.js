@@ -15,9 +15,29 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
-// Middleware
+// Middleware - CORS Configuration
+// Allow multiple origins for Vercel preview and production deployments
+const allowedOrigins = [
+    'http://localhost:5173',
+    'http://localhost:5174',
+    process.env.CLIENT_URL,
+];
+
 app.use(cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps, Postman, or same-origin)
+        if (!origin) return callback(null, true);
+
+        // Check if origin is in allowed list or matches Vercel pattern
+        const isVercelDomain = origin.includes('vercel.app') && origin.includes('flyhigh');
+        const isAllowed = allowedOrigins.includes(origin) || isVercelDomain;
+
+        if (isAllowed) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true,
 }));
 app.use(express.json()); // Parse JSON request bodies
